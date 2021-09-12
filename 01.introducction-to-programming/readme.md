@@ -1,4 +1,4 @@
-# 00. Introduction to Programming
+# 01. Introduction to Programming
 In this chapter we'll try to convey the most important aspects and the basis of what programming is. We'll utilize `javascript` as the programming language for this and future chapters, but the basic ideas discussed here should be extrapolated to other programming languages.
 
 I always say that if you know how to write recipes, you know how to program. Well, it's kinda true, if you consider the mathematical and engineering aspects of programming. What it means to program? The Webster Dictionary defines program as... Now seriously. To program is basically to give the computer instructions on what you want the machine to do. Computers are big, fast and complex calculators,  that can execute billions of calculations (instructions) per second.
