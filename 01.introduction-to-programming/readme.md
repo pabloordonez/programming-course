@@ -139,7 +139,9 @@ Perfect! the program continues to behave as expected! You can see that we reused
 
 But look at the code. We are repeating the same code over and over again. If there's something that we programmers hate, is having to do something multiple times. We can take hours to automate a task that manually takes 10 minutes if that saves us from repetition 🤪.
 
-There's a way we can generalize this code. We mentioned that `javascript` it's not only `functional`, is also `procedural`. This means that in `javascript`, we can not only write `functions`, but `procedures`. In `javascript` functions are also `procedures`, a javascript `function` is not required to return a value, and also can contain as many lines and logic as we want. So, in the previous code, what if we do another function that executes f and then prints the code? that will simplify the code we are writing, and reduce the number of lines in the long run.
+There's a way we can generalize this code. We mentioned that `javascript` it's not only `functional`, is also `procedural`. A procedure, like a recipe, is a list of statements that are executed one after the other in a sequential way.
+
+`javascript` is prepared t write only `functions`, but also `procedures`. But how? With `functions`! `functions` are also `procedures`! a javascript `function` is not required to return a value, and also can contain as many lines and logic as we want. So, in the previous code, what if we do another function that executes f and then prints the code? that will simplify the code we are writing, and reduce the number of lines in the long run.
 Lets rewrite our code:
 
 ```js
