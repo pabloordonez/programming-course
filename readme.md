@@ -3,9 +3,12 @@ In this course we'll try to acquire solid bases to understand what programming i
 
 ## Table of Concepts
 
-- [Prerequisites](00.prerequisites/readme.md)
+- [00.Prerequisites](00.prerequisites/readme.md)
     - [VSCODE](00.prerequisites/readme.md#VSCODE)
     - [Git](00.prerequisites/readme.md#Git)
-      - [Introduction to Git](00.prerequisites/readme.md#Introduction%20to%20Git)
     - [Node.JS](00.prerequisites/readme.md#Node.JS)
     - [Reviewing the tools](00.prerequisites/readme.md#Reviewing%20the%20tools)
+- [01.Introduction to Programming](01.introduction-to-programming/readme.md)
+    - [First Languages](01.introduction-to-programming/readme.md#First%20Languages)
+    - [Paradigms](01.introduction-to-programming/readme.md#Paradigms)
+    - [Javascript](01.introduction-to-programming/readme.md#Javascript)

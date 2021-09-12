@@ -33,13 +33,13 @@ With every passing year programmers researched new ways of communicating ideas t
 
 Currently there are tens or hundred of paradigms out there, and although is not required that you know everyone of them, is good for you to know they exists. We'll name a few:
 
-- **Imperative**: in which the programmer instructs the machine how to change its state.
-- **Procedural**: which groups instructions into procedures.
-- **Object-oriented**: which groups instructions with the part of the state they operate on.
-- **Declarative**: in which the programmer merely declares properties of the desired result, but not how to compute it.
-- **Functional**: in which the desired result is declared as the value of a series of function applications.
-- **Logic**: in which the desired result is declared as the answer to a question about a system of facts and rules.
-- **Mathematical**: in which the desired result is declared as the solution of an optimization problem reactive in which the desired result is declared with data streams and the propagation of change.
+- `Imperative`: in which the programmer instructs the machine how to change its state.
+- `Procedural`: which groups instructions into procedures.
+- `Object-oriented`: which groups instructions with the part of the state they operate on.
+- `Declarative`: in which the programmer merely declares properties of the desired result, but not how to compute it.
+- `Functional`: in which the desired result is declared as the value of a series of function applications.
+- `Logic`: in which the desired result is declared as the answer to a question about a system of facts and rules.
+- `Mathematical`: in which the desired result is declared as the solution of an optimization problem reactive in which the desired result is declared with data streams and the propagation of change.
 
 Most used and loved programming languages like javascript, c, c++, c#, java, rust, python, combine several paradigms into itself. Currently the two more used paradigms are Object oriented and Functional. There's always trouble in paradise, and different schools fight against the other throwing critics or problems. In the end, it will depend on what you like more, how good the paradigm let the programmer express the ideas, how easy to maintain is, how fast the code that produces can run, etc. In my humble opinion, to know more will let you choose the best tool for the job.
 
@@ -84,11 +84,11 @@ If we mentioned that a computer is nothing but a big calculator, then my program
    console.log(result);
    ```
 5. Now we should execute the code and see the result. Open the terminal by clicking `Terminal > New Terminal` and then typing:
-   ```bash
+   ```shell
    $ node first-program.js
    ```
    If everything went well, you should see an output similar to:
-   ```bash
+   ```shell
    node .\first-program.js
    12
    ```
@@ -110,5 +110,86 @@ let result = f(3, 4);
 console.log(result);
 ```
 
-This is nice! But what if we want to compute other areas? Having to modify the source code every time we want a different calculation sounds like too much trouble. It would be nice if, as regular calculator, the user could provide the parameters width and height when executing the program, instead of hardcoding the values into the program. Let's change our code so that the user can provide these values.
+
+
+This is nice! Lets calculate more areas now! Create a new file called `second-program.js` and paste the following code:
+
+```js
+function f(w, h) {
+    return w * h;
+}
+
+let result = f(3, 4);
+console.log(result);
+
+result = f(5, 6);
+console.log(result);
+
+result = f(715, 831);
+console.log(result);
+```
+Now we'll be calculating 3×4, 5×6 and 715×831. Let's run the program again by typing `node second-program.js`. After executing the program you should see something like:
+```shell
+$ node second-program.js
+12
+30
+594165
+```
+Perfect! the program continues to behave as expected! You can see that we reused the same variable result, but in the following executions we didn't add the let at the beginning of the line. This is because the variable was already declared the first time in the context of the program, and javascript nows that the variable already exists.
+
+But look at the code. We are repeating the same code over and over again. If there's something that we programmers hate, is having to do something multiple times. We can take hours to automate a task that manually takes 10 minutes if that saves us from repetition 🤪.
+
+There's a way we can generalize this code. We mentioned that `javascript` it's not only `functional`, is also `procedural`. This means that in `javascript`, we can not only write `functions`, but `procedures`. In `javascript` functions are also `procedures`, a javascript `function` is not required to return a value, and also can contain as many lines and logic as we want. So, in the previous code, what if we do another function that executes f and then prints the code? that will simplify the code we are writing, and reduce the number of lines in the long run.
+Lets rewrite our code:
+
+```js
+function f(w, h) {
+    return w * h;
+}
+
+function printArea(w, h) {
+    let result = f(w, h);
+    console.log(result);
+}
+
+printArea(3, 4);
+printArea(5, 6);
+printArea(715, 831);
+```
+
+As we can see, we created a new `function` called `printArea`. This function takes two arguments, `w` and `h`, then declares a variable, executes the function, stores the result into our variable, and then prints the result. After that, we are just calling `printArea` several times to print the area.
+
+Now that we moved the code inside the variable, one thing that not may obvious to an untrained eye, is that the variable declaration was moved also to the function. That variable exists now only inside the function. Remember what we mentioned about the curly brackets? Whatever is declared between the curly brackets is now part of the function. What if we try to add the following line after the last `printArea` call?
+
+```js
+printArea(3, 4);
+printArea(5, 6);
+printArea(715, 831);
+console.log(result);
+```
+Try to modify the code and execute again by typing `node second-program.js`. You should see something like:
+```shell
+$ node second-program.js
+12
+30
+594165
+D:\repositories\github\programming-course\01.introduction-to-programming\second-program.js:13
+console.log(result);
+            ^
+
+ReferenceError: result is not defined
+    at Object.<anonymous> (D:\repositories\github\programming-course\01.introduction-to-programming\second-program.js:13:13)
+    at Module._compile (internal/modules/cjs/loader.js:1072:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+    at internal/main/run_main_module.js:17:47
+```
+
+As you can see, the program failed to execute, giving as a hit of what failed. It says "result is not defined". This is completely correct, because result only exists in the context of the function, and we are calling to the `console.log(...)` outside the context of the function, the scope of the function.
+
+This is an important concept in programming. In general, whenever we execute code, that code is subject to the execution context. This can produce several errors or problems if we don't understand the effects.
+
+As we can see, functions act like small sub programs. You are encouraged to create as many functions as you see fit. In general, separate code into function instead repeating yourself it's considered a good practice. Having lots of small simpler functions is always better than having less complex functions. But try to name your functions in a way that make sense, to avoid having a mess of a code base.
 

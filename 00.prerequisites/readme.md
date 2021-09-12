@@ -75,13 +75,13 @@ Now that we have everything in place, we should be able to create an empty proje
 9. Now we'll open the embedded terminal (console). Go to `VSCODE` menu and click `Terminal > New Terminal`. A terminal should appear on the bottom part of your editor. The terminal used by default will change depending on your operating system. This can be changed later. It's a matter of personal taste, but I prefer using bash. If you are a Windows user, Git probably installed a Bash version for windows. You can switch to bash if you want. Anyway, any terminal will do the job, Cmd, Bash, Powershell, etc.
 
 10. Click and focus the terminal, and then type:
-    ```bash
+    ```shell
     node index.js
     ```
     and press `ENTER`
 
 11. You should see the following output:
-    ```bash
+    ```shell
     $ node index.js
     Hello programming world!
     ```
