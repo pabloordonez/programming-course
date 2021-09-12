@@ -89,7 +89,7 @@ If we mentioned that a computer is nothing but a big calculator, then my program
    ```
    If everything went well, you should see an output similar to:
    ```shell
-   node .\first-program.js
+   $ node first-program.js
    12
    ```
 
@@ -128,14 +128,14 @@ console.log(result);
 result = f(715, 831);
 console.log(result);
 ```
-Now we'll be calculating 3×4, 5×6 and 715×831. Let's run the program again by typing `node second-program.js`. After executing the program you should see something like:
+Now we'll be calculating `3×4`, `5×6` and `715×831`. Let's run the program again by typing `node second-program.js`. After executing the program you should see something like:
 ```shell
 $ node second-program.js
 12
 30
 594165
 ```
-Perfect! the program continues to behave as expected! You can see that we reused the same variable result, but in the following executions we didn't add the let at the beginning of the line. This is because the variable was already declared the first time in the context of the program, and javascript nows that the variable already exists.
+Perfect! the program continues to behave as expected! You can see that we reused the same variable `result`, but in the following instructions we didn't add the `let` at the beginning of the line. This is because the variable was already declared in the context of the program, and javascript knows that the variable already exists.
 
 But look at the code. We are repeating the same code over and over again. If there's something that we programmers hate, is having to do something multiple times. We can take hours to automate a task that manually takes 10 minutes if that saves us from repetition 🤪.
 
