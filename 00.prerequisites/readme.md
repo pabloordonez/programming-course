@@ -4,18 +4,18 @@ In order for the course to be taken, students will be required to have a minimum
 ## VSCODE
 When programming in any language, having a good text editor is of the utmost importance. As we'll see in the next chapters, good programming editors are not mere text editors, but they also include advanced capabilities like understanding the language you are writing, and provide features like contextual renames, function extraction, style constraints and much more.
 
-At the time of writing these tutorials, `Visual Studio Code` stands out as one of the best free programming IDEs and text editors out there. Includes a bast amount of plugins and modules you can add to enrich your programming experience. Currently posses a enormous community of developers using and improving the editor. `VSCODE` is programmed and uses the same technology we'll use for the tutorials, javascript, typescript, html, css, etc. Utilizes a technology called electron that we'll try to review in future courses. VSCODE is also available for Linux, Mac and Windows.
+At the time of writing these tutorials, `Visual Studio Code` stands out as one of the best free programming IDEs and text editors out there. It includes a bast amount of plugins and modules you can add to enrich your programming experience. Currently posses an enormous community of developers using and improving the editor. `VSCODE` is programmed and uses the same technology we'll use for the tutorials, javascript, typescript, html, css, etc. Utilizes a technology called electron that we'll try to review in future courses. VSCODE is also available for Linux, Mac and Windows.
 
 [Download](https://code.visualstudio.com/download) | [Learn More](https://code.visualstudio.com/docs)
 <br>
 <br>
 
 ## Git
-Any programmer that has worked in medium or large teams know about the hurdles of working when many people modify the same files. It's also frequent to want to save and version files, to go back in time if in the future we want to review what or why we did a particular modification. This type of applications are called `Version Control Systems` or `Source Control Systems` and are a must to work in the industry. We'll see that it will also help us with our daily jobs and make our life easier in the long run. Don't feel bad if in the beginning you find difficult to use these systems, or you don't fully understand the reason. In time this will become clearer.
+Any programmer that worked in medium-size or large teams knows about the hurdles of dealing with many people modifying the same files. It's also frequent to want to save and version files, to go back in time if in the future we want to review what or why we did a particular modification. This type of applications are called `Version Control Systems` or `Source Control Systems` and they are a must to work in the industry. We'll see that it will also help us with our daily jobs and make our life easier in the long run. Don't feel discouraged if in the beginning you find it difficult to use these systems, or you don't fully understand the reason. In time this will become clearer.
 
 At the time of this writing, there's one clear winner in the space of source control systems, and it's called `Git`. It was created by Linus Torvalds (the original programmer of Linux) to be used by him and the linux kernel programmers to version and control the sources of the Linux Operating System.
 
-During these courses we'll explain bits of Git, although a full understanding and management of Git it's outside the purpose of these classes. Some video links will be provided and it's left for the user to continue researching and using Git.
+During these courses we'll explain bits of Git, although a full understanding and management of Git it's outside the purpose of these classes. We'll provide video links for the student to watch, and we'll leave out to the user to continue researching and using Git.
 
 ### Introduction to Git
 | Index | Title | Duration (minutes) |
@@ -29,7 +29,7 @@ During these courses we'll explain bits of Git, although a full understanding an
 <br>
 
 ## Node.JS
-`Node.JS` or simply `Node` it's a javascript runtime environment that let us execute javascript code without the need of a browser, and without the sandbox restrictions a browser imposes over the code. `Node` is made by the `V8 engine` (the javascript compiler and JIT solution made by the Chromium project) and a series of system libraries to access the underlying operating system. With `Node` we can create javascript programs that read and write to the standard output (console), to files, sockets and more. We can interact with the computer devices, and much more.
+`Node.JS` or simply `Node` is a javascript runtime environment that let us execute javascript code without the need of a browser, and without the sandbox restrictions a browser imposes over the code. `Node` is composed by the `V8 engine` (the javascript compiler and JIT solution made by the Chromium project) and a series of system libraries to access the underlying operating system. With `Node` we can create javascript programs that read and write to the standard output (console), to files, sockets and more. We can interact with the computer devices, and much more.
 
 We'll delve into the world of `Node` with every passing class, but right now we need you to install the runtime in your machine so we can start following the courses.
 
@@ -44,7 +44,7 @@ We'll delve into the world of `Node` with every passing class, but right now we 
 <br>
 
 ## Reviewing the tools
-Now that we have everything in place, we should be able to create an empty project and start playing with them. We'll make a quick test utilizing all the tools together, and test if all the installation steps were successful.
+Now that we have everything in place, we should be able to create an empty project and start playing with it. We'll make a quick test utilizing all the tools together, and test if all the installation steps were successful.
 
 1. Open a browser explorer, or a terminal depending on what you feel more comfortable.
 
@@ -86,6 +86,6 @@ Now that we have everything in place, we should be able to create an empty proje
     Hello programming world!
     ```
 
-If you were able to successfully follow this introduction tutorial, you already wrote your first program! Congratulations! In the following chapters will start learning about programming, what a programming language is, what tools do we have at our disposal, and grow our understanding from there.
+If you were able to successfully follow this introduction tutorial, you already wrote your first program! Congratulations! In the following chapters we will start learning about programming, what a programming language is, what tools do we have at our disposal, and grow our understanding from there.
 
 See you in the next chapter!
