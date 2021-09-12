@@ -161,15 +161,17 @@ printArea(715, 831);
 
 As we can see, we created a new `function` called `printArea`. This function takes two arguments, `w` and `h`, then declares a variable, executes the function, stores the result into our variable, and then prints the result. After that, we are just calling `printArea` several times to print the area.
 
-Now that we moved the code inside the variable, one thing that not may obvious to an untrained eye, is that the variable declaration was moved also to the function. That variable exists now only inside the function. Remember what we mentioned about the curly brackets? Whatever is declared between the curly brackets is now part of the function. What if we try to add the following line after the last `printArea` call?
+Now that we moved the code inside the variable, one thing that may not be obvious to an untrained eye, is that the variable declaration was moved also into the function. That variable exists now only inside the function. Remember what we mentioned about the curly brackets? Whatever code is declared between the curly brackets is now part of the function. What if we try to add the following line after the last `printArea` call?
 
 ```js
 printArea(3, 4);
 printArea(5, 6);
 printArea(715, 831);
-console.log(result);
+console.log(result); // what will happen??
 ```
+
 Try to modify the code and execute again by typing `node second-program.js`. You should see something like:
+
 ```shell
 $ node second-program.js
 12
@@ -189,7 +191,7 @@ ReferenceError: result is not defined
     at internal/main/run_main_module.js:17:47
 ```
 
-As you can see, the program failed to execute, giving as a hit of what failed. It says "result is not defined". This is completely correct, because result only exists in the context of the function, and we are calling to the `console.log(...)` outside the context of the function, the scope of the function.
+As you can see, the program failed to execute, giving us a hint of what failed. It says _"result is not defined"_. This is completely correct, because the variable `result` only exists in the context of the function, and we are calling to the `console.log(...)` outside the context of the function: the scope of the function.
 
 This is an important concept in programming. In general, whenever we execute code, that code is subject to the execution context. This can produce several errors or problems if we don't understand the effects.
 
