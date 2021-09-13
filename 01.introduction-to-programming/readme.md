@@ -1,21 +1,11 @@
 # 01. Introduction to Programming
-In this chapter we'll try to convey the most important aspects and the basis of what programming is. We'll utilize `javascript` as the programming language for this and future chapters, but the basic ideas discussed here should be extrapolated to other programming languages.
+In this chapter we'll try to convey the most important aspects and the basis of what programming is. We'll utilize `javascript` as the programming language for this and future chapters, but the basic ideas discussed here should and can be extrapolated to other programming languages.
 
-I always say that if you know how to write recipes, you know how to program. Well, it's kinda true, if you consider the mathematical and engineering aspects of programming. What it means to program? The Webster Dictionary defines program as... Now seriously. To program is basically to give the computer instructions on what you want the machine to do. Computers are big, fast and complex calculators,  that can execute billions of calculations (instructions) per second.
+I always say that if you know how to write recipes, you already know how to program. Well, it's kinda true, if you consider the mathematical and engineering aspects of programming. What does it mean to program? The Webster Dictionary defines programming as... Now seriously. To program is basically to give the computer instructions on what you want the machine to do. Computers are big, fast and complex calculators, that can execute billions of calculations (instructions) per second.
 
 
 ## First Languages
-In the beginning, programmers had to know the machine language to provide meaningful instructions, but with time, new and more efficient ways of communicating with the machines were invented. First programmers invented assembler, these type of languages were tightly coupled to the machine instructions and provided a simple way of telling a machine what it should do, by providing a series of sequential instructions. Don't worry, we won't study assembler in this chapter, but if you are curious about what assembler is all about, you can think of a recipe that states:
-
-````
-1. First, Read a value from this sector in memory.
-2. Now put this value in this register
-3. Now add the number 4 to the register
-4. Check if the value after the addition is different than 0
-5. Now jump to the line 1.
-````
-
-If you are wondering how assembly looks like, here, take a look:
+In the beginning, programmers had to learn the machine instruction codes (binary codes) to provide meaningful instructions. Over time, new and more efficient ways of communicating with the machines were invented. At some point,  programmers invented assembler, or the assembly languages, these type of languages were tightly coupled to the machine instructions and provided a simple way of telling a machine what it should do, by providing a series of sequential instructions. Don't worry, we won't study assembler in this chapter, but if you are curious about what assembler looks like, you can think of a recipe that states:
 
 ```asm
 MOV EAX, [EBX]	  ; Move the 4 bytes in memory at the address contained in EBX into EAX
@@ -25,13 +15,15 @@ MOV DS, DX        ; Move the contents of DX into segment register DS
 
 Assembler allowed programmers to write more complex programs in a language that seemed more human, at least the instruction names were memonic of actual words.
 
-This assembly program was a textual representation of machine code, but still text. A computer can't understand text, it needs to be provided with binary numbers, a bunch of 0s and 1s. So programmed invented the concept of a compiler, a tool that translated the assembler instructions into machine code by "compiling" this instructions. Originally this programs where simple translators, but with time, they started growing in complexity.
+> Note: Most games you played when you were a kid, like NES, SNES, Sega, Gameboy games were completely programmed in assembler.
+
+These assembly programs were a textual representation of machine code. Computer couldn't understand the text instructions, they needed binary numbers, a bunch of 0s and 1s. So programmers invented the concept of a compiler, a tool that translates text instructions into machine code by "compiling" these higher level textual instructions. Originally these compiler programs where simple translators, but with time, they grew in complexity.
 
 
 ## Paradigms
-With every passing year programmers researched new ways of communicating ideas to a computer that were more human, providing more expressivity to the programmer. So different school of though appeared, and different paradigms were born.
+But not only compilers grew in complexity, with every passing year, programmers researched new ways of communicating ideas to a computer, providing more expressive ways for the programmer to instruct the machine. Different schools of though appeared, and different paradigms were born.
 
-Currently there are tens or hundred of paradigms out there, and although is not required that you know everyone of them, is good for you to know they exists. We'll name a few:
+Currently there are tens or hundred of paradigms out there, and although is not required to know every one of them, is good to know that they exist. We'll name a few that still important now days:
 
 - `Imperative`: in which the programmer instructs the machine how to change its state.
 - `Procedural`: which groups instructions into procedures.
@@ -41,12 +33,12 @@ Currently there are tens or hundred of paradigms out there, and although is not 
 - `Logic`: in which the desired result is declared as the answer to a question about a system of facts and rules.
 - `Mathematical`: in which the desired result is declared as the solution of an optimization problem reactive in which the desired result is declared with data streams and the propagation of change.
 
-Most used and loved programming languages like javascript, c, c++, c#, java, rust, python, combine several paradigms into itself. Currently the two more used paradigms are Object oriented and Functional. There's always trouble in paradise, and different schools fight against the other throwing critics or problems. In the end, it will depend on what you like more, how good the paradigm let the programmer express the ideas, how easy to maintain is, how fast the code that produces can run, etc. In my humble opinion, to know more will let you choose the best tool for the job.
+Most used and loved programming languages like `javascript`, `c`, `c++`, `c#`, `java`, `rust`, `python`, etc. combine several paradigms. Currently the two more used paradigms are `Object oriented` and `Functional` but still all languages include some type of `Imperative` and `Procedural` ideas. There is always trouble in paradise, and these different schools fought against each other remarking problems and issues. There are defenders and retractors of each paradigm, but in the end, it will depend on what you like more, how good the paradigm let you express your ideas, how easy to maintain it is, how fast the code that produces can run, etc. In my humble opinion, to know more will let you choose the best tool for the job.
 
 ## Javascript
 Originally, `Javascript` was invented as a simple interpreted language for the web. But gradually with the growth of the world wide web ecosystem, and due to its inner simplicity, it started to grow as one of the most used languages. With time the language started to evolve, and in the past 10 years received a lot of improvements. Currently the language allows to express ideas in a functional way, in an object oriented way, prototypically, procedurally, in a mix of different ideas ans statements.
 
-In this chapter we'll start to learn about the programming language itself, and how we can program, how we can tell our computer to do stuff, by using javascript. Is not important right now for you to understand the nitty-gritty details, but when you run a javascript program, a javascript compiler reads the code, creates an internal representation called abstract syntax tree, and from there translates the code into an intermediate format and then into machine instructions, that are executed by your computer. Every time you run a javascript program, or a website, this is happening behind the scenes.
+In this chapter we'll start to learn about the javascript programming language itself, and how we can program, how we can tell our computer to do stuff, by using javascript. It's not important right now for you to understand the nitty-gritty details, but when you run a javascript program, a javascript compiler reads the code, creates an internal representation called abstract syntax tree, and from there translates the code into an intermediate format and then into machine instructions, that are executed by your computer sequentially. Every time you run a javascript program, or a website, this happens behind the scenes.
 
 
 So, let's go back to the recipes idea. When you write a recipe, you have to declare the ingredients, then do operations, and then expect a result. This is not too different from what program does, or what a mathematical function is for that matter.
