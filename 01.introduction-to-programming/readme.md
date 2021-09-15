@@ -51,7 +51,7 @@ We are basically saying the function `ƒ(w, h)` takes two real numbers, and retu
 
 If we mentioned that a computer is nothing but a big calculator, then my program should be able to produce the same results, with a similar instruction. Let's go ahead a try how we can accomplish this with javascript:
 
-1. Create a new file called `first-program.js`.
+1. Create a new file called `program-01.js`.
 
 2. Now, we need to translate our mathematical function into a way that the javascript compiler understand, and execute the function for the values 4 and 3. As most of the programming languages out there, we should have a simple way of representing this idea. As we'll see in the next part, there is. One of the core concepts in javascript is the concept of `function`. We'll delve deeper later, for now let's copy the following code:
    ```js
@@ -77,11 +77,11 @@ If we mentioned that a computer is nothing but a big calculator, then my program
    ```
 5. Now we should execute the code and see the result. Open the terminal by clicking `Terminal > New Terminal` and then typing:
    ```shell
-   $ node first-program.js
+   $ node program-01.js
    ```
    If everything went well, you should see an output similar to:
    ```shell
-   $ node first-program.js
+   $ node program-01.js
    12
    ```
 
@@ -104,7 +104,7 @@ console.log(result);
 
 
 
-This is nice! Lets calculate more areas now! Create a new file called `second-program.js` and paste the following code:
+This is nice! Lets calculate more areas now! Create a new file called `program-02.js` and paste the following code:
 
 ```js
 function f(w, h) {
@@ -120,9 +120,9 @@ console.log(result);
 result = f(715, 831);
 console.log(result);
 ```
-Now we'll be calculating `3×4`, `5×6` and `715×831`. Let's run the program again by typing `node second-program.js`. After executing the program you should see something like:
+Now we'll be calculating `3×4`, `5×6` and `715×831`. Let's run the program again by typing `node program-02.js`. After executing the program you should see something like:
 ```shell
-$ node second-program.js
+$ node program-02.js
 12
 30
 594165
@@ -162,19 +162,19 @@ printArea(715, 831);
 console.log(result); // what will happen??
 ```
 
-Try to modify the code and execute again by typing `node second-program.js`. You should see something like:
+Try to modify the code and execute again by typing `node program-02.js`. You should see something like:
 
 ```shell
-$ node second-program.js
+$ node program-02.js
 12
 30
 594165
-D:\repositories\github\programming-course\01.introduction-to-programming\second-program.js:13
+$ /programming-course/01.introduction-to-programming/program-02.js:13
 console.log(result);
             ^
 
 ReferenceError: result is not defined
-    at Object.<anonymous> (D:\repositories\github\programming-course\01.introduction-to-programming\second-program.js:13:13)
+    at Object.<anonymous> (/programming-course/01.introduction-to-programming/program-02.js:13:13)
     at Module._compile (internal/modules/cjs/loader.js:1072:14)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)
     at Module.load (internal/modules/cjs/loader.js:937:32)
@@ -187,5 +187,312 @@ As you can see, the program failed to execute, giving us a hint of what failed. 
 
 This is an important concept in programming. In general, whenever we execute code, that code is subject to the execution context. This can produce several errors or problems if we don't understand the effects.
 
-As we can see, functions act like small sub programs. You are encouraged to create as many functions as you see fit. In general, separate code into function instead repeating yourself it's considered a good practice. Having lots of small simpler functions is always better than having less complex functions. But try to name your functions in a way that make sense, to avoid having a mess of a code base.
+Functions act like small sub programs. You are encouraged to create as many functions as you see fit. Separating code into functions, instead of repeating yourself, it's considered a good practice. Having lots of small simpler functions is always better than having less complex functions. But try to name your functions in a way that make sense, to avoid having a mess of a code base.
+
+Now that you saw what programming is, lets dive deeper and learn some core concepts. These are general programming concepts that will be valid in most programming languages, so don't fixate these ideas to javascript, these are common constructs that you'll find in most languages.
+
+## Variables
+You can think of a variable like an abstract box, where you can store values, objects, even functions (at least the function address, we'll see this later). Sometimes when doing complex logic, you need to save a value for later use. Variables will help you store the value inside a given context or scope, until you require it again. Sometimes it's also helpful to name values, or make shortcuts. Think as an example the number `PI`, it's globally known as `PI`, and it's much easier than write `3.14159265359`. Variables let you store the value for later use:
+
+```js
+let pi = 3.14159265359;
+
+console.log(pi); // will print 3.14159265359
+```
+
+So in the general sense, variables can be written to and read from. In the previous example, we are storing or writing the value `3.14159265359` inside the variable `PI` and then we read that value from pi to print it into the screen.
+
+You can also store intermediate operations:
+```js
+let width = 10;
+let depth = 5;
+let height = 20;
+let area = width * depth;    // area will be 50
+let volume = area * height;  // volume will be 1000
+
+console.log(volume); // will print 1000
+```
+
+Same concept here, we are writing and reading from the variables. You can create as many variables as needed. Obviously, there are some limits, it will depend on the amount of physical memory the computer has, and the memory that the OS shares with the application.
+
+### Mutable and Immutable Variables
+When creating variables, some time we prefer the variable to stay unchanged. In the `PI` example, we want to store the value of `PI` but we don't want random programmers overriding the value of `PI` later on, or the fabric of the universe could collapse on itself. Thankfully, there are ways for us to instruct the program to limit the mutability of a variable.
+
+We've been declaring variables using the `let` keyword, but there's other world that can be used to declare variables, and it's `const`. So, let's create a new file called `program-03.js` and add the following code, and the run it with node.
+
+```js
+let mutable = 1;
+mutable = 2;
+
+const immutable = 1;
+immutable = 2;
+
+console.log(mutable);
+console.log(immutable);
+```
+
+If you were able to create the file and run it, you should see something like:
+
+```shell
+/programming-course/01.introduction-to-programming/program-03.js:5
+immutable = 2;
+          ^
+TypeError: Assignment to constant variable.
+    at Object.<anonymous> (/programming-course/01.introduction-to-programming/program-03.js:5:11)
+←[90m    at Module._compile (internal/modules/cjs/loader.js:1072:14)←[39m
+←[90m    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)←[39m
+←[90m    at Module.load (internal/modules/cjs/loader.js:937:32)←[39m
+←[90m    at Function.Module._load (internal/modules/cjs/loader.js:778:12)←[39m
+←[90m    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)←[39m
+←[90m    at internal/main/run_main_module.js:17:47←[39m
+```
+
+The error is telling us that we tried to modified a const variable, and as such, a const variable can't be updated.
+
+As a rule of thumb, try to declare everything as const unless you know that you need to modify it. You won't probably fully understand the reason right now, but let say that this can help you avoiding undesired changes, and will make your code more performant. There are certain optimizations that can be made only if the data is constant.
+
+> Note: There's a entire school of thought about why programs should be immutable by default. Rust is immutable unless you state the contrary, and the state management is more secure and stable thanks to that decision.
+
+## Types
+So far we saw how to declare variables and simple functions, but we didn't specify the type of the variable. In programming, you will need more than numbers, even if in the end everything is translated to numbers, we should be able to express other ideas like text messages, true or false statements, or more complex objects.
+
+Is the variable box able to store any type of data? Can we limit the box to store only one type? is expected? is desired?
+
+In javascript, the short answer is no, we can't limit a variable to a type, but this is not true for other languages like c, c++, c#, java, rust and may more. Javascript will let you change the variable type as you see fit. This makes the code simpler to write, but also hard to follow, or to expect what should happen. But forget about that for a minute, let's play with other types of variables. Create a new file called `program-04.js`:
+
+```js
+function checkTypeAndValue(variable) {
+    console.log(`the variable type is '${typeof variable}' and its value is '${variable}'`);
+}
+
+checkTypeAndValue(10);                  // integer number
+checkTypeAndValue(3.1415);              // floating-point number
+checkTypeAndValue(true);                // boolean
+checkTypeAndValue("Hello World");       // string literal
+checkTypeAndValue(new Date());          // Date object
+checkTypeAndValue([]);                  // array
+checkTypeAndValue({});                  // object
+checkTypeAndValue(function () {});      // function
+```
+
+If you run the program, the output is:
+
+```shell
+$ node src/program-04.js
+the variable type is 'number' and its value is '10'
+the variable type is 'number' and its value is '3.1415'
+the variable type is 'boolean' and its value is 'true'
+the variable type is 'string' and its value is 'Hello World'
+the variable type is 'object' and its value is 'Wed Sep 15 2021 11:58:52 GMT-0300 (hora estándar de Argentina)'
+the variable type is 'object' and its value is ''
+the variable type is 'object' and its value is '[object Object]'
+the variable type is 'function' and its value is 'function () {}'
+```
+
+So, even if you don't provide a type explicitly, javascript can detect the type of data by using the reserved keyword `typeof`: `typeof variableName` will return a string with the type name:
+ - `"number"` : Number encloses all type of numbers, both integers and [floating-point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic).
+ - `"boolean"`: Boolean values can be either true or false.
+ - `"string"`: Strings are basically a chain of characters, used to represent text.
+ - `"object"`: Most types in javascript are treated as objects, arrays included.
+ - `"function"`: A function is also a type of content.
+
+> Exercise: You can also investigate what happens with pathological values like `null`, `undefined`, `NaN` and `Infinity`.
+
+### Summary
+- We can read and write to variables.
+- We can have mutable and immutable variables.
+- Variables can hold different value types, and we can change that at runtime.
+- We can detect the inner type by using the keyword `typeof`.
+
+## Control Flow Statements
+To make any program interesting, we need some type of decision making structure, some type of evaluation and automation. What if we want to make a program that detect odd numbers, or if we need to validate that a string size is not empty? Or what if I want to repeat a task a variable amount of times? There's an answer to all these questions, and we'll review each one of these control statements in this chapter.
+
+### if / if-else / ternary operator
+The first statement that anyone learns when learning programming is the `if statement`. The if statement allow us to check certain conditions, and act upon the results of the check:
+
+```js
+if (condition) {
+    // do something here
+}
+```
+If the condition is acceptable, then the code between the curly brackets will be executed, if the condition is not, then the code won't be executed. Let's create a new fule called `program-05.js` and start adding some tests:
+
+```js
+const number = 5;
+
+if (number > 10) {
+    console.log("Number is greater than 5");
+}
+
+if (number < 10) {
+    console.log("Number is less than 10");
+}
+```
+
+After running the code, we got something like:
+
+```shell
+$ node ./program-05.js
+Number is less than 10
+```
+
+So the first if concluded that the condition wasn't acceptable, and ignored the code between brackets. On the other hand, the second if statement evaluated the condition to be truthful, and executed the code between brackets.
+
+The if evaluates if the condition is not `falsy`, and acts accordingly. Most newer languages ask for boolean conditions, the condition must be a boolean expression. In the case of `javascript` the laguage checks for several things:
+- If the value it's a `boolean`, it must be true to execute.
+- If the value it's a `number`, it must be different than 0.
+- If the value it's a `string`, the string must exists and not be an empty string.
+- If it's not one of the above, the variable must be different from `null` or `undefined`.
+
+So, when you check for a condition, you need to understand this logic well if you want to provide a clear conditional for the if to work. As we'll see later, this conditional logic is also valid for other statements.
+
+> Note: You can see that the `if` uses curly brackets to define the section that will be executed. This section is a scope like the one inside functions, and the same warnings can be applied here: If you define a variable inside an `if` statement, that variable will only exist inside the if.
+
+Having to write two `if` to evaluate opposing conditions can be cumbersome, so the language designers thought about this, and created a contextual statement to handle what needs to happen if the condition is not approved. This is called the `else` branch. Let's rewrite the previous example using `else` instead:
+
+```js
+const number = 5;
+
+if (number > 10) {
+    console.log("Number is greater than 5");
+} else {
+    console.log("Number is less than 10");
+}
+```
+
+This is much more ergonomic way to execute the `if`. The result is exactly the same. The else code will only execute if the condition is not met, and the if block will be executed if the condition is met.
+
+If you have multiple conditions, there's a third way of writing an if:
+
+```js
+if (condition1) {
+
+} else if (condition2) {
+
+} else if (conditionN) {
+
+} else {
+
+}
+```
+
+In this case you can check multiple conditions and then do something else if no condition is met.
+
+There's another if called the ternary operator, and it's perfect when you need to decide if you assign a value or another:
+
+```js
+
+// instead of writing this code:
+let value;
+
+if (condition)
+    value = value1;
+else
+    value = value2;
+
+// you can simplify with this version:
+const value = (condition)? value1: value2;
+```
+
+
+### switch
+Sometimes you need to check if a value is one of an enumeration of different possible values, using a `else-if` can be really cumbersome and produces a lot of undesired code. There's a statement that was created to solve this kind of issues, called switch. The switch contains an expression, and then a set of arms with possible values for the variable, if a match is found, then that arm will be executed, if no arm is matched, then the switch will look for a default statement if any. Let's create a new ile called `program-06.js` and paste the following code:
+
+```js
+const value = 3;
+
+switch (value)
+{
+    case 1:
+        console.log("First case");
+        break;
+
+    case 2:
+        console.log("Second case");
+        break;
+
+    case 3:
+    case 4:
+    case 5:
+        console.log("Third, Fourth or Fifth case");
+        break;
+
+    default:
+        console.log("None of the above");
+        break;
+}
+```
+
+If we run the code, we should se the following output:
+
+```shell
+$ node src/program-06
+Third, Fourth or Fifth case
+```
+
+The switch evaluated every arm until a valid match was discovered. In this case, 3, 4 and 5 execute the same code.
+
+> Note: The switch has only one scope block, so if you declare something inside the switch, it will exists inside all the other arms. This is problematic because if you declare and initialize a variable in one arm, that variable will be in scope for the rest of the arms, but not initialized. As a rule of thumb, don't create variables inside a switch, or use specific names to avoid collision.
+
+
+### while / do-while
+
+### for
+
+### for of
+
+### for in
+
+## Advanced Types
+
+### Objects
+
+### Arrays
+
+### Stacks
+
+### Queue
+
+### Dictionaries / Hash maps
+
+### Functions
+
+## Memory and Addresses
+Every computer needs some type of memory storage, to store first the programs to run, and then some contextual running values. Think of your Operating System. Your OS it's made of a kernel and a series of satellite programs, that take memory space, and when you run them, they'll need even more space to store contextual values like the current date, the peripherals status, the video memory, etc.
+
+> You can think of a computer as a human brain. Part of the activity of a brain involves executing pattern recognition "programs", but the brain also needs long term and short term memory to be more efficient. There is a similar concept in computer architecture, you have the RAM memory, and you have the hard disks. One is ephemeral, the latter stores information even if no energy is provided.
+
+A program is nothing else that a list of machine instructions one next to the other in binary format, with a logic structure similar to the assembly example we saw earlier. When you execute a program, that code is read from the hard disk and moved to RAM, and from the to the CPU Cache, to start the reading and execution program. The CPU reads various instructions from the app, and executes each one individually and sequentially.
+
+So, a program is nothing but a list of instructions flowing on after the other:
+```
+    0xF00000         0xF10000            0xF2000
+----+----------------+-------------------+------------+----
+ ...| MOV EAX, [EBX] | MOV [ESI+EAX], CL | MOV DS, DX |...
+----+----------------+-------------------+------------+----
+    Î
+    Reading Cursor
+```
+
+And each instruction is stored in a given memory address. You can think of an address like the amount of bytes since the begining of the memory, where the instruction is located, it's like saying it's stored 2 meters from the floor, same concept.
+
+But I digress. The memory layout for variables is similar to the layout for programs, when an application executes, the operating system shares part of the RAM memory space with the application, and this memory gets split into sections. Part of the space is utilized to store the program itself, the instructions. Part of that space is used for global constants, values that are known at compile time, like strings, or constant numerical values. Then we have the stack, a special place where the application stores and overwrites values in a matter similar to stack structure (We'll discuss more about the data structure and the actual stack later on). Then you have what it's called the heap. In the heap, the application stores dynamic memory, this part is where the application requests memory allocations for bigger objects, and this part is normally thought as dynamic.
+
+When you write to variables, what you are actually doing is to write and read from one of these sectors, either the stack or the heap. So the variable is truly a memory address which you name with a memonic value that is more significant for you than an actual address. We could think the previous program as:
+
+```js
+let memory[0x0100] = 10;
+let memory[0x0200] = 5;
+let memory[0x0400] = 20;
+let memory[0x0800] = memory[0x0100] * memory[0x0200];    // area will be 50
+let memory[0x1000] = memory[0x0800] * memory[0x0400];    // volume will be 1000
+
+console.log(memory[0x1000]); // will print 1000
+```
+
+> Note: Depending on the type of language you use (interpreted, natively compiled, intermediate compiled, running inside a vm, etc) the memory used may differ. Also, CPUs have special places to store temporal values called registers, and some times if the value is ephemeral, it may end up using only register and not actually written or read from memory.
+
+
+### Values and References
+
 
